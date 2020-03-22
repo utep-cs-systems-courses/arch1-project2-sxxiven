@@ -9,7 +9,7 @@ char siren_enable;
 
 static char greenVal[] = {0, LED_GREEN};
 
-
+//initializes the led
 void led_init()
 {
   P1DIR |= LEDS;
@@ -20,18 +20,20 @@ void led_init()
 void led_update()
 {
 
+  //clears all bits from the green led when all is disabled (last button)
   if(disable_all)
   {
     P1OUT &= (0xff^LED_GREEN) | 0; 
   }
   
-  //below is the segment where the led lights will count when button 0 is pressed
+  //below updates the led by turning it on or off according to the currenst state
   if ((led_changed && count_on) || (led_changed && siren_enable))
     {
+      //the green_on determines if the led will be on accrding to the led flags
       unsigned char green_on = (s_letter || o_letter || siren_led); 
       char ledFlags = greenVal[green_on];
 
-      P1OUT &= (0xff^LEDS) | ledFlags; //clear bit for off leds
+      P1OUT &= (0xff^LED_GREEN) | ledFlags; //clear bit for off leds
       P1OUT |= ledFlags;
       led_changed = 0; 
   }

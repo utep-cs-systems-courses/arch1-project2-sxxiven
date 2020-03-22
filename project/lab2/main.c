@@ -4,8 +4,7 @@
 #include "switches.h"
 
 void main(void)
-{
-  //dim_init(); 
+{ 
   configureClocks(); 
   switch_init();
   led_init();

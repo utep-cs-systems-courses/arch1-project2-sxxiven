@@ -37,7 +37,8 @@ switch_interrupt_handler()
   switch_state_down2 = (p2val & SW2) ? 0 : 1; /* when SW2 is up */
   switch_state_down3 = (p2val & SW3) ? 0 : 1; /* when SW3 is up */
   switch_state_changed = 1;
- 
+
+  // Button 0 enables the count_on for the S.O.S message
   if(switch_state_down0)
   {
     count_on = 1;
@@ -45,19 +46,23 @@ switch_interrupt_handler()
     siren_enable = 0;
   }
 
+  // Button 1 enables the siren_enable for the siren
   if(switch_state_down)
   {
     count_on = 0;
     siren_enable = 1;
     jurrasic_enable = 0; 
   }
-  
+
+  // Button 2 enables the jurrasic_enable to play the jurrasic theme song
   if(switch_state_down2)
   {
     jurrasic_enable = 1;
     count_on = 0;
     siren_enable = 0; 
   }
+
+  // Button 3 disables all to stop all current states
   if(switch_state_down3)
   {
     buzzer_set_period(0);
