@@ -283,21 +283,18 @@ void state_advance()
     if(reps < 3 && count_on)
     {
       section = (s_letter) ? S : O;
-      changed = toggle_leds_off(50);
-      toggle_buzzer_off(50); 
+      changed = toggle_leds_off(50); 
     }
     else if (reps == 3 && count_on)
     {
       section = (s_letter) ? O : S;
       changed = toggle_leds_off(100);
-      toggle_buzzer_off(100);
       reps = 0; 
     }
     //this toggles the siren led makeing it "glow" with the low siren 
     else if(reps< 25 && siren_enable)
     {
       changed = toggle_leds_off(2); 
-      toggle_buzzer_off(2); 
       section = low; 
     }
     break;
