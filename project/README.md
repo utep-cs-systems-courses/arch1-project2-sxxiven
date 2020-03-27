@@ -28,6 +28,16 @@ Button 3:
        Button 3 is the last from the left. It's functionality is to stop any
        state and make the msp430 silent and dark.
 
+When transitioning between state from buttons 0 - 2, make sure you stop all
+before proceeding to the next state by pressing button 3 for the best
+preformance and experience. 
+
 The assembly file located with the rest of the files serves as a function. It
 is supposed to turn off all of the LED flags, set the delay to the desired
-specific value, and sets the buzzer period to 0 when needed. 
+specific value, and sets the buzzer period to 0 when needed.
+
+How to use:
+
+    To load the program onto to the msp430, run 'make load'. In order to clean
+    the files run 'make clean'. 
+
