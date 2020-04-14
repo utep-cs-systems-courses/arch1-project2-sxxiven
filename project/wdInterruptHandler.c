@@ -1,7 +1,7 @@
 #include <msp430.h>
 #include "led.h"
 #include "buzzer.h"
-#include "states.h"
+#include "stateMachine.h"
 //#include "stateMachines.h"
 
 char playing_note = 0, song_length = 54; 
