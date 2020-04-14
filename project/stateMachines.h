@@ -1,6 +1,8 @@
 #ifndef stateMachine_included
-#define stateMachine_included
+#define stateMachine_included 
 
-void state_advance();
+void state_advance(); 
+
+extern char section; 
 
 #endif // included

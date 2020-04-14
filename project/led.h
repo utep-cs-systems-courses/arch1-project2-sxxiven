@@ -6,7 +6,7 @@
 #define LED_GREEN BIT6              // P1.6
 #define LEDS BIT6
 
-extern unsigned char s_letter, o_letter,siren_led; 
+extern unsigned char green_led; 
 extern unsigned char led_changed, count_on, disable_all;
 extern char delay, reps; 
 
