@@ -9,7 +9,7 @@ AS		= msp430-elf-as				#assembly for msp430
 all: lab2.elf 	#file that executes all the executionables together
 
 #additional rules for files
-lab2.elf: p2_interrupt_handler.o led.o switches.o stateMachines.o wdInterruptHandler.o buzzer.o off.o main.o lib/libTimer.a 
+lab2.elf: p2_interrupt_handler.o led.o switches.o stateMachines.o wdInterruptHandler.o buzzer.o off.o states.o main.o lib/libTimer.a 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: lab2.elf

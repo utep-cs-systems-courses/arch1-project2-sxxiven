@@ -4,6 +4,7 @@
 #include "buzzer.h"
 #include "stateMachines.h"
 
+
 char switch_state_down, switch_state_down0, switch_state_changed, section; /* effectively boolean */
 char switch_state_down2, switch_state_down3, jurrasic_enable, siren_enable; 
 unsigned char count_on;
@@ -52,7 +53,8 @@ switch_interrupt_handler()
   // Button 1 enables the siren_enable for the siren
   if(switch_state_down)
   {
-    section = 2; 
+    section = 2;
+    reps = 0;
     count_on = 0;
     siren_enable = 1;
     jurrasic_enable = 0; 
@@ -61,7 +63,8 @@ switch_interrupt_handler()
   // Button 2 enables the jurrasic_enable to play the jurrasic theme song
   if(switch_state_down2)
   {
-    section = 0; 
+    section = 0;
+    playing_note =0; 
     jurrasic_enable = 1;
     count_on = 0;
     siren_enable = 0; 

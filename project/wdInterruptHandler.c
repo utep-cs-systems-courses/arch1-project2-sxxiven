@@ -1,7 +1,8 @@
 #include <msp430.h>
-#include "stateMachines.h"
 #include "led.h"
 #include "buzzer.h"
+#include "states.h"
+//#include "stateMachines.h"
 
 char playing_note = 0, song_length = 54; 
 
@@ -20,7 +21,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
       playing_note = playing_note % song_length; 
     }
     //advances the states and rests the count
-    state_advance();
+    states_advance();
     blink_count = 0; 
   }
   if( jurrasic_enable == 0 ){ 
